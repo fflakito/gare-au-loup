@@ -8,6 +8,7 @@ import sys
 import urllib3
 import argparse
 import urllib.request
+import time
 
 searchterm = sys.argv[1] # user-input of type string
 scroll_nums = int(sys.argv[2]) # user-input of type int (a few dozens or hundreds)
@@ -26,12 +27,14 @@ succounter = 0
 
 print("Scrolling to generate more images on the page...")
 for _ in range(scroll_nums):
+    time.sleep(.200) #200 ms
     browser.execute_script("window.scrollBy(0,10000)")
 
 print("Scraping ...")
 
 # You will probably need to update the class here (look for "rg_i" in the HTML with Chrome):
 for x in browser.find_elements_by_xpath('//img[contains(@class,"rg_i Q4LuWd")]'):
+    time.sleep(.200)
     counter = counter + 1
     # print("URL:", x.get_attribute('src'))
 
