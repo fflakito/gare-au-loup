@@ -29,7 +29,9 @@ for _ in range(scroll_nums):
     browser.execute_script("window.scrollBy(0,10000)")
 
 print("Scraping ...")
-for x in browser.find_elements_by_xpath('//img[contains(@class,"rg_i Q4LuWd tx8vtf")]'):
+
+# You will probably need to update the class here (look for "rg_i" in the HTML with Chrome):
+for x in browser.find_elements_by_xpath('//img[contains(@class,"rg_i Q4LuWd")]'):
     counter = counter + 1
     # print("URL:", x.get_attribute('src'))
 
