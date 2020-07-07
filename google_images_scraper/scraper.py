@@ -27,14 +27,14 @@ succounter = 0
 
 print("Scrolling to generate more images on the page...")
 for _ in range(scroll_nums):
-    time.sleep(.200) #200 ms
+    time.sleep(.050)
     browser.execute_script("window.scrollBy(0,10000)")
 
 print("Scraping ...")
 
 # You will probably need to update the class here (look for "rg_i" in the HTML with Chrome):
 for x in browser.find_elements_by_xpath('//img[contains(@class,"rg_i Q4LuWd")]'):
-    time.sleep(.200)
+    time.sleep(.050)
     counter = counter + 1
     # print("URL:", x.get_attribute('src'))
 
